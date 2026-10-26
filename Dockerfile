@@ -11,7 +11,6 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=5000
 
 # Install server dependencies
 WORKDIR /app/server
@@ -25,6 +24,5 @@ COPY server/src/ ./src/
 COPY --from=client-builder /app/client/dist /app/client/dist
 
 WORKDIR /app
-EXPOSE 5000
 
 CMD ["node", "server/src/index.js"]
