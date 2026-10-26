@@ -113,7 +113,7 @@ const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/staffsync';
 
 mongoose.connect(mongoUri)
   .then(() => {
-    app.listen(port, () => {
+    app.listen(port, '0.0.0.0', () => {
       console.log('\n=================================================');
       console.log(` StaffSync Server running at: http://localhost:${port}`);
       if (fs.existsSync(clientDistPath)) {
